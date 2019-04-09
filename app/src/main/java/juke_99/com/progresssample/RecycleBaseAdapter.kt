@@ -4,7 +4,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import kotlin.collections.ArrayList
 
-class RecycleBaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
+abstract class RecycleBaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    companion object {
+        val TYPE_ITEM = 1
+        val TYPE_PROG = 2
+    }
+
     private var lock: Any = Any()
     var objects: ArrayList<Any>? = null
 
@@ -40,13 +45,5 @@ class RecycleBaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     override fun getItemCount(): Int {
         return objects!!.size
-    }
-
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
